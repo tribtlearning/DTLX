@@ -1,250 +1,303 @@
 import Head from "next/head";
 
+// Ảnh banner/giao diện: Đặt ảnh vào public/ hoặc dùng link ngoài
+const BANNERS = [
+  "/banner-Truong-Phat-1-2.jpg",
+  "/banner-Truong-Phat-2409-min.jpg"
+];
+
+const CARDS = [
+  {
+    title: "Học lái xe hạng B1",
+    img: "/z5660337202645_5a0b73029562222b2def1dfce1d311cc.jpg",
+    link: "/khoa-hoc-lai-xe-hang-b1"
+  },
+  {
+    title: "Học lái xe hạng B2",
+    img: "/hoc-lai-xe-4.jpg",
+    link: "/khoa-hoc-lai-xe-hang-b2"
+  },
+  {
+    title: "Học lái xe hạng C",
+    img: "/hoc-lai-xe-5.jpg",
+    link: "/day-hoc-lai-xe-hang-c"
+  },
+  {
+    title: "Học lái xe hạng A1",
+    img: "/sp1.png",
+    link: "/hoc-lai-xe-hang-a1"
+  }
+];
+
 export default function Home() {
   return (
     <>
       <Head>
-        <title>Trung Tâm Dạy Lái Xe Trí Bộ</title>
-        <meta name="description" content="Dạy lái xe ô tô các hạng B1, B2, C tại TPHCM. Đăng ký học ngay!" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet" />
+        <title>TRUNG TÂM ĐÀO TẠO LÁI XE TRÍ BỘ</title>
+        <meta name="description" content="Trung tâm đào tạo lái xe các hạng B1, B2 và C. Đội ngũ giáo viên kinh nghiệm, tỷ lệ đậu cao, học phí trọn gói." />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet"/>
       </Head>
-      <header className="header">
-        <div className="container">
-          <img src="/logo.png" alt="Logo" className="logo" />
-          <nav>
-            <a href="#gioithieu">Giới thiệu</a>
-            <a href="#dichvu">Dịch vụ</a>
-            <a href="#banggia">Bảng giá</a>
-            <a href="#dangky">Đăng ký</a>
-            <a href="#lienhe">Liên hệ</a>
-          </nav>
-        </div>
-      </header>
-      <main>
-        <section className="banner">
-          <img src="/banner.jpg" alt="Banner" />
-          <div className="banner-content">
-            <h1>TRUNG TÂM DẠY LÁI XE TRÍ BỘ</h1>
-            <p>Dạy lái xe các hạng B1, B2, C chuyên nghiệp tại TPHCM</p>
-            <a href="#dangky" className="banner-btn">Đăng ký ngay</a>
+      <header className="site-header">
+        <div className="container header-flex">
+          <div className="logo">
+            <img src="/logo-website.png" alt="Logo" />
           </div>
-        </section>
-
-        <section id="gioithieu" className="intro section">
+          <div className="diachi">
+            <div>
+              <span><i className="fa fa-map-marker"></i> 216 Lâm Văn Bền, Tân Quy, Q7, TP.HCM</span><br/>
+              <span><i className="fa fa-map-marker"></i> 96/1/4 Đào Tông Nguyên, Nhà Bè, TP.HCM</span>
+            </div>
+            <div>
+              <span><i className="fa fa-clock-o"></i> 8h – 17h30 : T2 – T7</span>
+            </div>
+          </div>
+          <div className="hotline">
+            <a href="tel:0935085569">
+              <i className="fa fa-phone"></i> Hotline: 0935.085.569
+            </a>
+          </div>
+        </div>
+        <nav className="main-nav">
           <div className="container">
+            <a href="#">Trang chủ</a>
+            <a href="#gioi-thieu">Giới thiệu</a>
+            <a href="#khoa-hoc">Khóa học</a>
+            <a href="#dang-ky">Đăng ký</a>
+            <a href="#lien-he">Liên hệ</a>
+          </div>
+        </nav>
+      </header>
+
+      {/* Banner Carousel */}
+      <section className="banner-carousel">
+        <div className="banner-wrapper">
+          {BANNERS.map((url, i) => (
+            <img src={url} key={i} alt="Banner" className="banner-img" />
+          ))}
+        </div>
+        <div className="banner-overlay">
+          <h1>TRUNG TÂM DẠY LÁI XE TRÍ BỘ</h1>
+          <p>Đào tạo lái xe B1, B2, C. Cam kết tỷ lệ đậu cao, học phí minh bạch!</p>
+        </div>
+      </section>
+
+      {/* Giới thiệu */}
+      <section className="section about" id="gioi-thieu">
+        <div className="container about-flex">
+          <div className="about-info">
             <h2>Về chúng tôi</h2>
             <p>
-              Trung tâm Dạy Lái Xe Trí Bộ là đơn vị uy tín với hơn 10 năm kinh nghiệm đào tạo lái xe các hạng B1, B2, C tại TP.HCM. Đội ngũ giáo viên tận tâm, xe đời mới, cam kết tỷ lệ đậu cao.
+              Trung tâm dạy lái xe Trí Bộ tự hào được cấp phép tuyển sinh đào tạo lái xe ô tô các hạng B1, B2, C. Với hơn 10 năm kinh nghiệm, đội ngũ giáo viên tận tâm, cơ sở vật chất hiện đại. Học viên được học lý thuyết và thực hành không giới hạn đến khi tự tin thi sát hạch.
             </p>
+            <a className="btn" href="#dang-ky">Đăng ký ngay</a>
           </div>
-        </section>
-
-        <section id="dichvu" className="services section">
-          <div className="container">
-            <h2>Dịch vụ đào tạo</h2>
-            <div className="service-list">
-              <div className="service-card">
-                <img src="/b1.png" alt="B1" />
-                <h3>Hạng B1</h3>
-                <p>Lái xe số tự động, không hành nghề.</p>
-              </div>
-              <div className="service-card">
-                <img src="/b2.png" alt="B2" />
-                <h3>Hạng B2</h3>
-                <p>Lái xe số sàn, hành nghề lái xe dưới 9 chỗ.</p>
-              </div>
-              <div className="service-card">
-                <img src="/c.png" alt="C" />
-                <h3>Hạng C</h3>
-                <p>Lái xe tải, xe chuyên dùng trên 3.5 tấn.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="banggia" className="pricing section">
-          <div className="container">
-            <h2>Bảng giá học lái xe</h2>
-            <div className="pricing-list">
-              <div className="pricing-card">
-                <h4>B1</h4>
-                <p className="price">12.000.000đ</p>
-                <ul>
-                  <li>Xe số tự động</li>
-                  <li>Học 1 kèm 1</li>
-                  <li>Miễn phí tài liệu</li>
-                </ul>
-              </div>
-              <div className="pricing-card">
-                <h4>B2</h4>
-                <p className="price">11.500.000đ</p>
-                <ul>
-                  <li>Xe số sàn</li>
-                  <li>Hỗ trợ lịch học linh hoạt</li>
-                  <li>Miễn phí lệ phí thi</li>
-                </ul>
-              </div>
-              <div className="pricing-card">
-                <h4>C</h4>
-                <p className="price">13.500.000đ</p>
-                <ul>
-                  <li>Xe tải trên 3.5 tấn</li>
-                  <li>Trợ giảng tận tâm</li>
-                  <li>Thi thử miễn phí</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="benefits section">
-          <div className="container">
-            <h2>Lợi ích khi học tại Trí Bộ</h2>
-            <div className="benefit-list">
-              <div className="benefit-item">Đảm bảo tỷ lệ đậu cao</div>
-              <div className="benefit-item">Hỗ trợ thi lại miễn phí</div>
-              <div className="benefit-item">Học phí trọn gói, không phát sinh</div>
-              <div className="benefit-item">Giáo viên nhiệt tình, xe mới</div>
-            </div>
-          </div>
-        </section>
-
-        <section className="process section">
-          <div className="container">
-            <h2>Quy trình đăng ký & học</h2>
-            <div className="process-list">
-              <div className="process-step">1. Đăng ký tư vấn</div>
-              <div className="process-step">2. Chuẩn bị hồ sơ</div>
-              <div className="process-step">3. Học lý thuyết & thực hành</div>
-              <div className="process-step">4. Thi sát hạch</div>
-              <div className="process-step">5. Nhận bằng</div>
-            </div>
-          </div>
-        </section>
-
-        <section id="dangky" className="register section">
-          <div className="container register-container">
-            <div className="register-form">
-              <h2>Đăng ký tư vấn</h2>
-              <form>
-                <input type="text" placeholder="Họ tên" required />
-                <input type="tel" placeholder="Số điện thoại" required />
-                <input type="email" placeholder="Email (nếu có)" />
-                <select required>
-                  <option value="">Chọn hạng xe</option>
-                  <option value="B1">Hạng B1</option>
-                  <option value="B2">Hạng B2</option>
-                  <option value="C">Hạng C</option>
-                </select>
-                <button type="submit">Gửi đăng ký</button>
-              </form>
-            </div>
-            <div className="register-img">
-              <img src="/register.jpg" alt="Đăng ký học lái xe" />
-            </div>
-          </div>
-        </section>
-
-        <section id="lienhe" className="contact section">
-          <div className="container">
-            <h2>Liên hệ</h2>
-            <div className="contact-info">
-              <div>
-                <strong>Địa chỉ:</strong> 123 Đường Lái Xe, Quận 1, TP.HCM
-              </div>
-              <div>
-                <strong>Điện thoại:</strong> 0981 234 567
-              </div>
-              <div>
-                <strong>Email:</strong> trungtamtribo@gmail.com
-              </div>
-            </div>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.50257858337!2d106.70042311480055!3d10.773374492323212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f1b066b6847%3A0x2a5c6f0b2dfb8b1d!2zMTIzIMSQxrDhu51uZyBMw6BpIFhl!5e0!3m2!1svi!2s!4v1632985738193!5m2!1svi!2s"
-              width="100%"
-              height="230"
-              style={{ border: 0, borderRadius: '8px', marginTop: '15px' }}
-              allowFullScreen=""
-              loading="lazy"
-            ></iframe>
-          </div>
-        </section>
-      </main>
-      <footer>
-        <div className="footer-content">
-          <div>© 2025 Trung Tâm Dạy Lái Xe Trí Bộ</div>
-          <div>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a> | 
-            <a href="https://zalo.me" target="_blank" rel="noopener noreferrer">Zalo</a>
+          <div className="about-video">
+            <img src="/banner-02.jpg" alt="about" style={{borderRadius:10}}/>
           </div>
         </div>
+      </section>
+
+      {/* Khóa học */}
+      <section className="section khoa-hoc" id="khoa-hoc">
+        <div className="container">
+          <h2>HẠNG XE ĐÀO TẠO</h2>
+          <div className="card-list">
+            {CARDS.map((c, idx) => (
+              <div className="card" key={idx}>
+                <img src={c.img} alt={c.title} />
+                <h3>{c.title}</h3>
+                <a className="btn-link" href={c.link}>Đăng ký ngay</a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Thông tin nhanh */}
+      <section className="section info-quick">
+        <div className="container info-list">
+          <div className="info-item">
+            <i className="fa fa-user-plus"></i>
+            <div>
+              <span className="info-title">Học viên/tháng</span>
+              <strong>900+</strong>
+            </div>
+          </div>
+          <div className="info-item">
+            <i className="fa fa-car"></i>
+            <div>
+              <span className="info-title">Xe đào tạo</span>
+              <strong>176</strong>
+            </div>
+          </div>
+          <div className="info-item">
+            <i className="fa fa-map-marker"></i>
+            <div>
+              <span className="info-title">Điểm đón</span>
+              <strong>27</strong>
+            </div>
+          </div>
+          <div className="info-item">
+            <i className="fa fa-check-circle"></i>
+            <div>
+              <span className="info-title">Có bằng</span>
+              <strong>100%</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Thông tin chi tiết */}
+      <section className="section detail">
+        <div className="container">
+          <h2>Tìm hiểu các hạng bằng lái xe B1, B2 và C</h2>
+          <ul>
+            <li>Bằng B1: xe số tự động 4–9 chỗ, tải dưới 3.5 tấn</li>
+            <li>Bằng B2: xe số sàn/số tự động 4–9 chỗ, tải dưới 3.5 tấn</li>
+            <li>Bằng C: xe 4–9 chỗ, tải cả trên/dưới 3.5 tấn</li>
+          </ul>
+          <h3>Điều kiện đăng ký học</h3>
+          <ul>
+            <li>Công dân VN hoặc người nước ngoài tại VN</li>
+            <li>18+ tuổi (B1, B2), 21+ tuổi (C)</li>
+            <li>Không yêu cầu bằng cấp, đủ sức khỏe</li>
+          </ul>
+          <h3>Thủ tục đăng ký</h3>
+          <ul>
+            <li>01 CCCD photo, 08 ảnh 3x4 nền xanh (free chụp ở trung tâm)</li>
+            <li>01 bản photo bằng lái hiện có (nếu có)</li>
+            <li>01 hồ sơ sức khỏe (được hướng dẫn tại trung tâm)</li>
+          </ul>
+          <a className="btn" href="#dang-ky">Liên hệ tư vấn</a>
+        </div>
+      </section>
+
+      {/* Form đăng ký */}
+      <section className="section form-section" id="dang-ky">
+        <div className="container form-flex">
+          <div className="form-box">
+            <h2>Đăng ký tư vấn học lái xe</h2>
+            <form>
+              <input type="text" placeholder="Họ và tên" required />
+              <input type="tel" placeholder="Số điện thoại" required />
+              <select required>
+                <option value="">-- Lựa chọn khóa học --</option>
+                <option value="B1">Khóa học lái xe B1 (Số tự động)</option>
+                <option value="B2">Khóa học lái xe B2</option>
+                <option value="C">Khóa học lái xe hạng C</option>
+                <option value="A1">Thi bằng lái xe máy A1</option>
+                <option value="A2">Thi bằng lái xe máy A2</option>
+                <option value="NangHang">Nâng hạng bằng lái</option>
+              </select>
+              <button type="submit">Đăng ký ngay</button>
+            </form>
+          </div>
+          <div className="form-img">
+            <img src="/banner-03.jpg" alt="Đăng ký học" />
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="footer">
+        <div className="container f-flex">
+          <div className="footer-col">
+            <h3>Thông tin liên hệ</h3>
+            <ul>
+              <li>TRUNG TÂM ĐÀO TẠO LÁI XE TRÍ BỘ</li>
+              <li><i className="fa fa-map-marker"></i> 216 Lâm Văn Bền, Q7, TP.HCM</li>
+              <li><i className="fa fa-map-marker"></i> 96/1/4 Đào Tông Nguyên, Nhà Bè</li>
+              <li><i className="fa fa-phone"></i> <a href="tel:0935085569">0935085569</a></li>
+              <li><i className="fa fa-envelope"></i> daylaixetribo@gmail.com</li>
+            </ul>
+          </div>
+          <div className="footer-col">
+            <h3>Khoá học & Dịch vụ</h3>
+            <ul>
+              <li><i className="fa fa-check-square-o"></i> <a href="#">Khoá học lái xe B1</a></li>
+              <li><i className="fa fa-check-square-o"></i> <a href="#">Khoá học lái xe B2</a></li>
+              <li><i className="fa fa-check-square-o"></i> <a href="#">Khoá học lái xe hạng C</a></li>
+              <li><i className="fa fa-check-square-o"></i> <a href="#">Khóa nâng dấu D, E</a></li>
+              <li><i className="fa fa-check-square-o"></i> <a href="#">Khóa lái xe A1, A2</a></li>
+            </ul>
+          </div>
+          <div className="footer-col">
+            <h3>Theo dõi chúng tôi</h3>
+            <div className="footer-social">
+              <a href="mailto:daylaixetribo@gmail.com"><i className="fa fa-envelope"></i></a>
+              <a href="https://facebook.com/" target="_blank"><i className="fa fa-facebook-square"></i></a>
+              <a href="https://zalo.me/0935085569" target="_blank">ZALO</a>
+            </div>
+            <img src="/dk-so-giao-thong-van-tai.png" alt="dkso" width="120" />
+          </div>
+        </div>
+        <div className="copyright">
+          Copyright © 2025 daylaixetribo.com
+        </div>
       </footer>
+
+      {/* FontAwesome CDN */}
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
       <style jsx>{`
-        :global(body) { font-family: 'Roboto', Arial, sans-serif; background: #f4f8fb; }
-        .header { background: #1976d2; position: sticky; top: 0; z-index: 999; }
-        .header .container { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; }
-        .logo { width: 58px; border-radius: 50%; }
-        nav a { color: #fff; text-decoration: none; margin-left: 24px; font-size: 1.08rem; font-weight: 500; }
-        nav a:hover { text-decoration: underline; }
-        .banner { position: relative; height: 340px; }
-        .banner img { width: 100%; height: 340px; object-fit: cover; filter: brightness(0.7); }
-        .banner-content {
-          position: absolute; left: 0; top: 0; width: 100%; height: 100%;
-          display: flex; flex-direction: column; align-items: center; justify-content: center;
-          color: #fff; text-shadow: 1px 2px 8px rgba(0,0,0,0.7);
-        }
-        .banner-content h1 { font-size: 2.3rem; font-weight: 700; margin-bottom: 8px;}
-        .banner-content p { font-size: 1.2rem; margin-bottom: 18px;}
-        .banner-btn {
-          background: #ffc107; color: #1976d2; padding: 12px 32px; border-radius: 30px;
-          font-size: 1.1rem; font-weight: bold; box-shadow: 0 2px 12px #0002; text-decoration: none;
-          transition: background 0.2s;
-        }
-        .banner-btn:hover { background: #fff; color: #1976d2; }
-        .section { padding: 48px 0 36px 0; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        h2 { color: #1976d2; font-size: 2rem; margin-bottom: 24px; font-weight: 700;}
-        .service-list { display: flex; gap: 24px; justify-content: center; }
-        .service-card { background: #fff; border-radius: 10px; box-shadow: 0 2px 12px #0001; padding: 28px 20px; text-align: center; flex: 1; }
-        .service-card img { width: 54px; margin-bottom: 10px;}
-        .pricing-list { display: flex; gap: 24px; }
-        .pricing-card {
-          background: linear-gradient(120deg,#1976d2 70%,#fff 100%);
-          color: #fff; border-radius: 12px; box-shadow: 0 2px 14px #0001;
-          flex:1; padding: 28px 18px; text-align: center;
-        }
-        .pricing-card h4 { font-size: 1.3rem; margin-bottom: 8px; letter-spacing: 1px;}
-        .price { font-size: 2rem; font-weight: 700; margin: 8px 0 18px 0;}
-        .pricing-card ul { list-style: none; padding: 0; color: #e3f2fd; }
-        .pricing-card ul li { margin-bottom: 7px; }
-        .benefit-list { display: flex; gap: 18px; flex-wrap: wrap; justify-content: center;}
-        .benefit-item { background: #e3f2fd; border-left: 5px solid #1976d2; border-radius: 7px; padding: 14px 20px; min-width: 200px; margin-bottom: 10px; }
-        .process-list { display: flex; gap: 18px; flex-wrap: wrap; justify-content: center;}
-        .process-step { background: #fff; border: 1.5px dashed #1976d2; border-radius: 7px; padding: 14px 18px; min-width: 170px; margin-bottom: 10px; }
-        .register-container { display: flex; gap: 36px; flex-wrap: wrap; align-items: center; justify-content: center; }
-        .register-form { background: #fff; border-radius: 14px; box-shadow: 0 2px 18px #0001; padding: 30px 26px; min-width: 330px; }
-        .register-form h2 { margin-bottom: 16px;}
-        .register-form form { display: flex; flex-direction: column; gap: 12px;}
-        .register-form input, .register-form select {
-          padding: 10px 12px; border: 1px solid #bbb; border-radius: 5px; font-size: 1rem;
-        }
-        .register-form button {
-          background: #1976d2; color: #fff; padding: 12px; border: none; border-radius: 5px;
-          font-size: 1.1rem; font-weight: bold; transition: background 0.2s; cursor:pointer;
-        }
-        .register-form button:hover { background: #1565c0;}
-        .register-img img { width: 300px; border-radius: 10px; box-shadow: 0 2px 12px #0002;}
-        .contact-info { margin-bottom: 16px;}
-        .contact-info div { margin-bottom: 6px;}
-        footer { background: #1976d2; color: #fff; padding: 24px 0; margin-top: 24px;}
-        .footer-content { display: flex; align-items: center; justify-content: space-between; max-width: 1100px; margin: 0 auto; padding: 0 20px;}
-        .footer-content a { color: #fff; margin: 0 6px; text-decoration: underline;}
+        body { font-family: 'Roboto', Arial, sans-serif; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+        .header-flex { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+        .logo img { width: 110px; }
+        .diachi { color: #555; font-size: 14px; line-height: 1.4; }
+        .hotline { font-size: 16px; }
+        .hotline a { color: #ed2024; font-weight: bold; text-decoration: none; }
+        .main-nav { background: #ed2024; }
+        .main-nav a { color: #fff; text-decoration: none; font-weight: 500; padding: 12px 18px; display: inline-block; }
+        .main-nav a:hover { background: #c70000; }
+        .banner-carousel { position: relative; overflow: hidden; }
+        .banner-img { width: 100%; height: 350px; object-fit: cover; display: block;}
+        .banner-wrapper { display: flex; }
+        .banner-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0,0,0,0.18); color: #fff; text-shadow: 1px 2px 8px #333; }
+        .banner-overlay h1 { font-size: 2.1rem; font-weight: bold; margin-bottom: 16px;}
+        .about-flex { display: flex; gap: 32px; align-items: flex-start; margin-top: 30px;}
+        .about-info { flex: 2; }
+        .about-info h2 { color: #ed2024; }
+        .about-info p { margin: 20px 0; }
+        .about-video { flex: 1; display: flex; align-items: center; }
+        .about-video img { width: 100%; max-width: 340px; }
+        .section { padding: 40px 0; }
+        .khoa-hoc h2 { text-align: center; margin-bottom: 30px; color: #ed2024;}
+        .card-list { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center;}
+        .card { background: #fff; border-radius: 8px; box-shadow: 0 2px 18px #0001; text-align: center; padding: 18px 10px 24px 10px; width: 225px;}
+        .card img { width: 100%; height: 120px; object-fit: cover; border-radius: 6px;}
+        .card h3 { font-size: 1.13rem; margin: 15px 0 10px 0;}
+        .btn-link { display: inline-block; padding: 8px 18px; background: #ed2024; color: #fff; border-radius: 30px; font-weight: bold; text-decoration: none; margin-top: 7px;}
+        .btn-link:hover { background: #c70000; }
+        .info-quick { background: #f8f8f8; }
+        .info-list { display: flex; gap: 28px; justify-content: center; padding: 30px 0;}
+        .info-item { display: flex; align-items: center; gap: 14px; background: #fff; border-radius: 8px; padding: 16px 26px; box-shadow: 0 2px 10px #0001;}
+        .info-item i { font-size: 1.9rem; color: #ed2024;}
+        .info-title { font-size: 0.97rem; color: #666;}
+        .detail { background: #fff; border-radius: 8px; box-shadow: 0 2px 10px #0001; margin: 30px 0; padding: 28px 20px;}
+        .detail h2 { color: #ed2024; margin-bottom: 12px;}
+        .detail ul { margin-bottom: 10px;}
+        .form-section { background: #f8f8f8; }
+        .form-flex { display: flex; gap: 36px; align-items: center; justify-content: center;}
+        .form-box { background: #fff; border-radius: 10px; box-shadow: 0 2px 14px #0001; padding: 30px 26px; min-width: 320px;}
+        .form-box h2 { margin-bottom: 20px;}
+        .form-box form { display: flex; flex-direction: column; gap: 15px;}
+        .form-box input, .form-box select { padding: 10px 12px; border: 1px solid #bbb; border-radius: 5px; font-size: 1rem;}
+        .form-box button { background: #ed2024; color: #fff; border: none; border-radius: 5px; padding: 12px; font-size: 1.1rem; font-weight: bold; cursor:pointer;}
+        .form-box button:hover { background: #c70000;}
+        .form-img img { width: 340px; border-radius: 8px;}
+        .btn { background: #ed2024; color: #fff; border: none; border-radius: 30px; padding: 10px 28px; font-size: 1rem; font-weight: bold; text-decoration: none;}
+        .btn:hover { background: #c70000; }
+        .footer { background: #ed2024; color: #fff; padding: 40px 0 0 0;}
+        .f-flex { display: flex; gap: 36px; justify-content: space-between; flex-wrap: wrap; }
+        .footer-col { flex: 1; min-width: 220px; }
+        .footer-col h3 { margin-bottom: 10px;}
+        .footer-col ul { list-style: none; padding: 0; }
+        .footer-col ul li { margin-bottom: 7px;}
+        .footer-social a { color: #fff; margin-right: 12px; font-size: 1.4rem;}
+        .copyright { text-align: center; background: #c70000; margin-top: 30px; padding: 10px 0; font-size: 1rem;}
         @media (max-width: 900px) {
-          .service-list, .pricing-list, .benefit-list, .process-list { flex-direction: column; gap: 14px; }
-          .register-container { flex-direction: column; gap: 22px;}
-          .register-img img { width: 90vw;}
-          .footer-content { flex-direction: column; gap: 10px;}
+          .about-flex, .form-flex, .card-list, .info-list, .f-flex { flex-direction: column; gap: 18px;}
+          .about-video img, .form-img img { width: 95vw;}
         }
       `}</style>
     </>
